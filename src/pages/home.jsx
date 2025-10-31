@@ -54,15 +54,15 @@ const Home = () => {
       </div>
       
       <div className="user-selection">
-<div className="user-card" onClick={() => navigate('/login')}>
+<div className="user-card" onClick={() => navigate('/studentlogin')}>
   <h3>Student</h3>
 </div>
 
-<div className="user-card" onClick={() => navigate('/login')}>
+<div className="user-card" onClick={() => navigate('/teacherlogin')}>
   <h3>Teacher</h3>
 </div>
 
-<div className="user-card" onClick={() => navigate('/login')}>
+<div className="user-card" onClick={() => navigate('/adminlogin')}>
   <h3>Admin</h3>
 </div>
       </div>

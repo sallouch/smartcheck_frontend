@@ -1,42 +1,28 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './login.css';
+import './Login.css';
 
-const Login = () => {
-  const [email, setEmail] = useState('');
+const TeacherLogin = () => {
+  const [cin, setCin] = useState('');
   const [password, setPassword] = useState('');
-  const [userType, setUserType] = useState('student');
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Logique de connexion ici
-    switch(userType) {
-      case 'student':
-        navigate('/student-dashboard');
-        break;
-      case 'teacher':
-        navigate('/professor-dashboard');
-        break;
-      case 'admin':
-        navigate('/admin-dashboard');
-        break;
-      default:
-        navigate('/');
-    }
+    navigate('/professordashboard');
   };
 
   return (
     <div className="login-container">
       <div className="login-form">
-        <h2>Login to SmartChek</h2>
+        <h2>Login</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <input
-              type="input"
-              placeholder="CIN"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              type="email"
+              placeholder="email"
+              value={cin}
+              onChange={(e) => setCin(e.target.value)}
               required
             />
           </div>
@@ -58,4 +44,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default TeacherLogin;

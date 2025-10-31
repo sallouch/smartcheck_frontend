@@ -1,9 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/home";
-import Login from './pages/auth/login'
-import StudentDashboard from "./pages/studentdashboard";
-import ProfessorDashboard from "./pages/professordashboard";
-import AdminDashboard from "./pages/admindashboard";
+import StudentLogin from './pages/auth/studentlogin'
+import TeacherLogin from './pages/auth/teacherlogin'
+import AdminLogin from './pages/auth/adminlogin'
+import StudentDashboard from "./pages/dashboards/studentdashboard";
+import ProfessorDashboard from "./pages/dashboards/professordashboard";
+import AdminDashboard from "./pages/dashboards/admindashboard";
 import React from 'react';
 import './App.css';
 
@@ -13,10 +15,12 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/student" element={<StudentDashboard />} />
-          <Route path="/professor" element={<ProfessorDashboard />} />
-          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/studentlogin" element={<StudentLogin />} />
+          <Route path="/teacherlogin" element={<TeacherLogin />} />
+          <Route path="/adminlogin" element={<AdminLogin />} />
+          <Route path="/studentdashboard" element={<StudentDashboard />} />
+          <Route path="/professordashboard" element={<ProfessorDashboard />} />
+          <Route path="/admindashboard" element={<AdminDashboard />} />
         </Routes>
       </div>
     </Router>
