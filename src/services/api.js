@@ -1,29 +1,34 @@
-const API_BASE_URL = "http://localhost:8000";
+export const API_BASE_URL = 'http://127.0.0.1:8000';
+fetch("http://127.0.0.1:8000")
+  .then(res => res.json())
+  .then(data => console.log(data))
+  .catch(err => console.log(err));
 
 // Fonction utilitaire pour les appels API
 async function fetchAPI(endpoint, options = {}) {
-  const url = `${API_BASE_URL}${endpoint}`;
+  const url = `${API_BASE_URL}${endpoint}`; // <--- maintenant API_BASE_URL est défini
   
   const config = {
-    headers: {
-      'Content-Type': 'application/json',
-    },
+    headers: { 'Content-Type': 'application/json' },
     ...options
   };
 
   try {
     const response = await fetch(url, config);
-    
+    const data = await response.json();
+
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      throw new Error(data.detail || `HTTP error! status: ${response.status}`);
     }
-    
-    return await response.json();
+
+    return data;
   } catch (error) {
     console.error('API call failed:', error);
     throw error;
   }
 }
+
+
 
 // API pour l'authentification
 export const authAPI = {
