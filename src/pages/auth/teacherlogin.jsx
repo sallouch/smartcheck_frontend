@@ -21,7 +21,7 @@ const TeacherLogin = () => {
       // stocker le token
       tokenManager.setToken(data);
   
-      if (data.role === 'enseignat') {
+      if (data.role === 'enseignant') {
         navigate('/professordashboard');
       } else {
         setError('Accès réservé aux enseignants');
