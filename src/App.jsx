@@ -3,9 +3,10 @@ import Home from "./pages/home";
 import StudentLogin from './pages/auth/studentlogin'
 import TeacherLogin from './pages/auth/teacherlogin'
 import AdminLogin from './pages/auth/adminlogin'
-import StudentDashboard from "./pages/dashboards/studentdashboard";
-import ProfessorDashboard from "./pages/dashboards/professordashboard";
-import AdminDashboard from "./pages/dashboards/admindashboard";
+import StudentDashboard from "./pages/dashboards/student/studentdashboard";
+import History from './pages/dashboards/student/history';
+import ProfessorDashboard from "./pages/dashboards/professor/professordashboard";
+import AdminDashboard from "./pages/dashboards/admin/admindashboard";
 import React from 'react';
 import './App.css';
 
@@ -18,7 +19,8 @@ function App() {
           <Route path="/studentlogin" element={<StudentLogin />} />
           <Route path="/teacherlogin" element={<TeacherLogin />} />
           <Route path="/adminlogin" element={<AdminLogin />} />
-          <Route path="/studentdashboard" element={<StudentDashboard />} />
+          <Route path="/studentdashboard" element={<StudentDashboard />}/>
+          <Route path="/student/history" element={<History />} />
           <Route path="/professordashboard" element={<ProfessorDashboard />} />
           <Route path="/admindashboard" element={<AdminDashboard />} />
         </Routes>
