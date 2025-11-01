@@ -232,3 +232,12 @@
     height: 150px;
   }
 }
+.history-card {
+  border-left: 4px solid #6c757d;
+  background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
+  color: white;
+}
+
+.history-card:hover {
+  background: linear-gradient(135deg, #5a6268 0%, #495057 100%);
+}
