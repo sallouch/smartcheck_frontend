@@ -60,10 +60,9 @@ const StudentLogin = () => {
 
 export default Login;
 */
-import React, { useState } from 'react';
+/*import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
-
 const StudentLogin = () => {
   const [cin, setCin] = useState('');
   const [password, setPassword] = useState('');
@@ -100,6 +99,95 @@ const StudentLogin = () => {
           </div>
           
           <button type="submit" className="login-btn">Login</button>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default StudentLogin;
+*/
+
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './Login.css';
+import { authAPI, tokenManager } from '../../services/api';
+
+const StudentLogin = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError('');
+
+    try {
+      // Appel à votre backend FastAPI
+      const response = await authAPI.login(email, password);
+      
+      // Stocker le token
+      tokenManager.setToken(response);
+      
+      // Rediriger selon le rôle
+      if (response.role === 'etudiant') {
+        navigate('/studentdashboard');
+      } else {
+        setError('Accès réservé aux étudiants');
+        tokenManager.clearToken();
+      }
+    } catch (error) {
+      setError('Email ou mot de passe incorrect');
+      console.error('Login error:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="login-container">
+      <div className="login-form">
+        <h2>Student Login</h2>
+        
+        {error && (
+          <div style={{ 
+            color: 'red', 
+            marginBottom: '15px', 
+            textAlign: 'center' 
+          }}>
+            {error}
+          </div>
+        )}
+        
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              disabled={loading}
+            />
+          </div>
+          
+          <div className="form-group">
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              disabled={loading}
+            />
+          </div>
+          
+          <button type="submit" className="login-btn" disabled={loading}>
+            {loading ? 'Connexion...' : 'Login'}
+          </button>
         </form>
       </div>
     </div>

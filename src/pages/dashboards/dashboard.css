@@ -232,3 +232,156 @@
     height: 150px;
   }
 }
+
+/* Ajoutez ces styles à votre Dashboard.css existant */
+
+.qr-reader-container {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+#qr-reader {
+  border: 2px solid #3498db !important;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#qr-reader__dashboard_section {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+#qr-reader__dashboard_section_csr {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.scan-instruction {
+  text-align: center;
+  margin: 15px 0;
+  color: #666;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Styles pour le bouton de scan */
+#qr-reader__dashboard_section_csr button {
+  background: #3498db !important;
+  color: white !important;
+  border: none !important;
+  padding: 10px 15px !important;
+  border-radius: 5px !important;
+  cursor: pointer !important;
+}
+
+#qr-reader__dashboard_section_csr button:hover {
+  background: #2980b9 !important;
+}
+
+/* Amélioration du modal scanner */
+.scanner-area {
+  padding: 20px;
+  text-align: center;
+}
+
+.scanner-content {
+  background: white;
+  border-radius: 15px;
+  width: 95%;
+  max-width: 400px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+/* Styles pour la caméra */
+.camera-container {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #000;
+}
+
+.camera-video {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.scan-frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  border: 2px solid #00ff00;
+  border-radius: 10px;
+  box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.3);
+}
+
+.scan-instruction {
+  text-align: center;
+  margin: 15px 0;
+  color: #333;
+  font-weight: 500;
+}
+
+.scanner-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.scan-btn {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.scan-btn:hover {
+  background: #2980b9;
+}
+
+.cancel-btn {
+  background: #95a5a6;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.cancel-btn:hover {
+  background: #7f8c8d;
+}
+
+/* Animation de scan */
+@keyframes scan-line {
+  0% { top: 0%; }
+  100% { top: 100%; }
+}
+
+.scan-frame::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #00ff00;
+  animation: scan-line 2s linear infinite;
+}
