@@ -232,6 +232,7 @@
     height: 150px;
   }
 }
+<<<<<<< HEAD:src/pages/dashboards/dashboard.css
 
 /* Ajoutez ces styles à votre Dashboard.css existant */
 
@@ -384,4 +385,14 @@
   height: 3px;
   background: #00ff00;
   animation: scan-line 2s linear infinite;
+=======
+.history-card {
+  border-left: 4px solid #6c757d;
+  background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
+  color: white;
+}
+
+.history-card:hover {
+  background: linear-gradient(135deg, #5a6268 0%, #495057 100%);
+>>>>>>> branche1:src/pages/dashboards/student/dashboard.css
 }
