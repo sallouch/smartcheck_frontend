@@ -72,7 +72,7 @@
 
 .scanner-card h3,
 .scanner-card p {
-  color: #666;
+  color: #333;
 }
 
 .dashboard-card p {
@@ -384,13 +384,318 @@
   height: 3px;
   background: #00ff00;
   animation: scan-line 2s linear infinite;
+}
 .history-card {
   border-left: 4px solid #6c757d;
   background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
   color: white;
 }
 
-.history-card:hover {
-  background: linear-gradient(135deg, #5a6268 0%, #495057 100%);
+
+/* Statistiques de présence */
+.attendance-stats {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 25px;
+  border-radius: 12px;
+  margin: 20px 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
+
+.attendance-stats h3 {
+  margin: 0 0 20px 0;
+  text-align: center;
+  font-size: 1.4em;
+  font-weight: 600;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 20px 15px;
+  border-radius: 10px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.stat-number {
+  display: block;
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 8px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.stat-label {
+  font-size: 0.9em;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+/* Scanner QR Code */
+.qr-scanner-container {
+  position: relative;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.qr-video {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  border: 3px solid #007bff;
+  background-color: #000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.scanning-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+}
+
+.scanning-animation {
+  width: 60px;
+  height: 60px;
+  border: 3px solid #007bff;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 15px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.scanner-error {
+  text-align: center;
+  color: #d32f2f;
+  background-color: #ffebee;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 15px 0;
+  border-left: 4px solid #d32f2f;
+}
+
+.retry-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 15px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.retry-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Instructions scanner */
+.scanner-instructions {
+  text-align: center;
+  margin: 20px 0;
+  color: #555;
+  font-size: 0.95em;
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #007bff;
+}
+
+.scanner-instructions p {
+  margin: 8px 0;
+  font-weight: 500;
+}
+
+.scanner-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* Notifications */
+.attendance-success {
+  background: #d4edda;
+  color: #155724;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+  border-left: 4px solid #28a745;
+  font-weight: 500;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.attendance-error {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+  border-left: 4px solid #dc3545;
+  font-weight: 500;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.attendance-info {
+  background: #fff3cd;
+  color: #856404;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+  border-left: 4px solid #ffc107;
+  font-weight: 500;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Cartes dashboard */
+.scanner-card {
+  border-left: 4px solid white;
+  background: linear-gradient(135deg, white 0%, white 100%);
+  color: white;
+}
+
+/*.scanner-card:hover {
+  background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
+}
+*/
+.history-card {
+  border-left: 4px solid white;
+  background: linear-gradient(135deg, white 0%, white 100%);
+  color: white;
+}
+
+/*.history-card:hover {
+  background: linear-gradient(135deg, #1e7e34 0%, #155724 100%);
+}
+*/
+/* Responsive */
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .stat-card {
+    padding: 15px 10px;
+  }
+  
+  .stat-number {
+    font-size: 1.6em;
+  }
+  
+  .qr-video {
+    max-width: 300px;
+  }
+  
+  .scanner-instructions {
+    font-size: 0.9em;
+    padding: 12px;
+  }
+}
+
+/* Animation pour les cartes */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+.scanner-card:hover {
+  animation: pulse 0.5s ease-in-out;
+}
+
+/* Onglets de navigation */
+.tab-navigation {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 10px;
+}
+
+.tab-btn {
+  padding: 12px 24px;
+  border: none;
+  background: none;
+  border-radius: 8px 8px 0 0;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  color: #6c757d;
+}
+
+.tab-btn:hover {
+  background-color: #f8f9fa;
+  color: #495057;
+}
+
+.tab-btn.active {
+  background-color: #3498db;
+  color: white;
+  border-bottom: 3px solid #2980b9;
+}
+
+.tab-content {
+  min-height: 500px;
+}
+
+/* Styles spécifiques professeur */
+.professor-stats {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+.stat-number {
+  display: block;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  opacity: 0.9;
 }

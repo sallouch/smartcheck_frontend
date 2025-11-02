@@ -109,6 +109,7 @@
 
 .form-group {
   margin-bottom: 20px;
+  
 }
 
 .form-group input {
@@ -118,6 +119,8 @@
   border-radius: 4px;
   font-size: 16px;
   box-sizing: border-box;
+  background-color: #ddd;
+  color: black;
 }
 
 .form-group input:focus {
