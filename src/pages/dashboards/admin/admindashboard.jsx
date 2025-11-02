@@ -9,7 +9,7 @@ const AdminDashboard = () => {
       <div className="dashboard-header">
         <h1>Tableau de Bord Administrateur</h1>
         <button onClick={() => navigate('/')} className="logout-btn">
-          Retour à l'accueil
+          Deconnexion
         </button>
       </div>
       
